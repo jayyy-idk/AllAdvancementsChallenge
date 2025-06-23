@@ -73,10 +73,22 @@ autosave-interval-seconds: 10
 | *(Permission Only)* | Allows moving/interacting while paused. **(OPs by default)** | `challenge.admin.bypasspause`|
 
 ## 🔄 The Full World Reset
-The `/achallenge reset` command resets all player and plugin data. For a completely fresh world for the next round, the following 100% safe process is recommended:
 
-1. In-Game: Run `/achallenge reset confirm`. The plugin will reset all data and enter the WAITING_TO_START state. The command will also display the next steps in chat.
-2. Stop Server: Shut down the server cleanly using the stop command in the console.
-3. Delete Folders: In your main server directory, delete the folders: world, world_nether, and world_the_end.
-4. Restart Server: The server will automatically generate brand-new, fresh worlds.
-5. Start Challenge: Once the server is online, use `/achallenge start` to begin!
+The `/achallenge reset` command resets all player and plugin data. For a **completely fresh world** for the next round, the following 100% safe process is recommended:
+
+1.  **🎮 In-Game Reset**
+    * Run the command `/achallenge reset confirm`.
+    * This will reset all player stats, clear the history, and prepare the plugin for a new round. The plugin will guide you with further instructions in chat.
+
+2.  **🛑 Stop the Server**
+    * Shut down the server completely and safely by typing `stop` into your server console.
+
+3.  **🗑️ Delete World Folders**
+    * Open your main server directory.
+    * Delete the following folders: `world`, `world_nether`, and `world_the_end`.
+
+4.  **▶️ Restart the Server**
+    * Start your server again. Minecraft will automatically generate brand-new, fresh worlds.
+
+5.  **🚀 Start the Challenge**
+    * Once everyone is on the server, use `/achallenge start` to begin the new challenge!
