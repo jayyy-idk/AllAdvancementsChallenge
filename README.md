@@ -54,3 +54,58 @@ messages:
 # How many seconds should be between automatic saves?
 # Values that are too low (below 5) can impact performance.
 autosave-interval-seconds: 10
+```
+
+## 💻 Commands & Permissions
+/advancements
+
+Description: Displays a chronological list of all earned advancements.
+Permission: `None`
+`/agui`
+
+Description: Opens the graphical user interface for all advancements.
+Permission: `None`
+`/achallenge start`
+
+Description: Starts a reset or ended challenge.
+Permission: `challenge.admin.start`
+`/achallenge pause`
+
+Description: Pauses the running challenge.
+Permission: `challenge.admin.pause`
+`/achallenge resume`
+
+Description: Resumes a paused challenge.
+Permission: `challenge.admin.pause`
+`/achallenge stop confirm`
+
+Description: Ends the challenge, keeping data for review.
+Permission: `challenge.admin.stop`
+`/achallenge reset confirm`
+
+Description: Resets all player and plugin data.
+Permission: `challenge.admin.reset`
+`/achallenge lang <de|en|pl>`
+
+Description: Changes the plugin's language live.
+Permission: `challenge.admin.lang`
+`/achallenge autosave <seconds>`
+
+Description: Changes the auto-save interval live.
+Permission: `challenge.admin.autosave`
+`/achallenge reload`
+
+Description: Reloads the config and language files.
+Permission: `challenge.admin.reload`
+
+Permission: `challenge.admin.bypasspause`
+Description: Allows a player to move and interact while the challenge is paused. (Active for OPs by default)
+
+## 🔄 The Full World Reset
+The `/achallenge reset` command resets all player and plugin data. For a completely fresh world for the next round, the following 100% safe process is recommended:
+
+In-Game: Run `/achallenge reset confirm`. The plugin will reset all data and enter the WAITING_TO_START state. The command will also display the next steps in chat.
+Stop Server: Shut down the server cleanly using the stop command in the console.
+Delete Folders: In your main server directory, delete the folders: world, world_nether, and world_the_end.
+Restart Server: The server will automatically generate brand-new, fresh worlds.
+Start Challenge: Once the server is online, use `/achallenge start` to begin!
