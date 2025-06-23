@@ -57,49 +57,20 @@ autosave-interval-seconds: 10
 ```
 
 ## 💻 Commands & Permissions
-`/advancements`
 
-Description: Displays a chronological list of all earned advancements.
-Permission: `None`
-`/agui`
-
-Description: Opens the graphical user interface for all advancements.
-Permission: `None`
-`/achallenge start`
-
-Description: Starts a reset or ended challenge.
-Permission: `challenge.admin.start`
-`/achallenge pause`
-
-Description: Pauses the running challenge.
-Permission: `challenge.admin.pause`
-`/achallenge resume`
-
-Description: Resumes a paused challenge.
-Permission: `challenge.admin.pause`
-`/achallenge stop confirm`
-
-Description: Ends the challenge, keeping data for review.
-Permission: `challenge.admin.stop`
-`/achallenge reset confirm`
-
-Description: Resets all player and plugin data.
-Permission: `challenge.admin.reset`
-`/achallenge lang <de|en|pl>`
-
-Description: Changes the plugin's language live.
-Permission: `challenge.admin.lang`
-`/achallenge autosave <seconds>`
-
-Description: Changes the auto-save interval live.
-Permission: `challenge.admin.autosave`
-`/achallenge reload`
-
-Description: Reloads the config and language files.
-Permission: `challenge.admin.reload`
-
-Permission: `challenge.admin.bypasspause`
-Description: Allows a player to move and interact while the challenge is paused. (Active for OPs by default)
+| Command | Description | Permission |
+| --- | --- | --- |
+| `/advancements` | Displays a chronological list of all earned advancements. | *(none)* |
+| `/agui` | Opens the graphical user interface for all advancements. | *(none)* |
+| `/achallenge start` | Starts a reset or ended challenge. | `challenge.admin.start` |
+| `/achallenge pause` | Pauses the running challenge. | `challenge.admin.pause` |
+| `/achallenge resume`| Resumes a paused challenge. | `challenge.admin.pause` |
+| `/achallenge stop confirm` | Ends the challenge, keeping data for review. | `challenge.admin.stop` |
+| `/achallenge reset confirm`| Resets all player and plugin data. | `challenge.admin.reset` |
+| `/achallenge lang <de\|en\|pl>` | Changes the plugin's language live. | `challenge.admin.lang` |
+| `/achallenge autosave <seconds>` | Changes the auto-save interval live. | `challenge.admin.autosave` |
+| `/achallenge reload` | Reloads the config and language files. | `challenge.admin.reload` |
+| *(Permission Only)* | Allows moving/interacting while paused. **(OPs by default)** | `challenge.admin.bypasspause`|
 
 ## 🔄 The Full World Reset
 The `/achallenge reset` command resets all player and plugin data. For a completely fresh world for the next round, the following 100% safe process is recommended:
