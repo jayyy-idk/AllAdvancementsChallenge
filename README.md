@@ -23,7 +23,7 @@ A comprehensive Spigot plugin designed to manage and enhance an "All Advancement
 
 ## 🚀 Installation
 
-1.  Download the latest `.jar` file from the [Releases Page](https://github.com/YOUR_USERNAME/YOUR_PROJECT/releases).
+1.  Download the latest `.jar` file from the [Releases Page]([ ](https://github.com/jayyy-idk/AllAdvancementsChallenge/releases/tag/v.0.1.9)).
 2.  Place the `.jar` file into your Spigot/Paper server's `plugins` folder.
 3.  Restart or reload your server.
 4.  The plugin will generate an `AllAchievementsChallenge` folder containing the configuration and language files.
