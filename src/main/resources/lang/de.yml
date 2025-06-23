@@ -1,0 +1,97 @@
+# =========================================
+# Deutsche Sprachdatei
+# =========================================
+lang-name: "Deutsch"
+
+# Allgemeine Nachrichten
+error-no-permission: "&cDu hast keine Berechtigung für diesen Befehl."
+error-no-player: "Dieser Befehl kann nur von einem Spieler ausgeführt werden."
+error-unknown-command: "&cUnbekannter Befehl. Benutze: %usage%"
+line-separator: "&e=========================================="
+
+# BossBar
+bossbar-title: "&6%earned%/%total% Advancements &f| &e%time%"
+bossbar-paused: "&b&lPAUSIERT"
+bossbar-waiting: "&c&lWARTE AUF START | Benutze /achallenge start"
+
+# Befehle (/achallenge)
+usage: "&eBenutzung: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"
+config-reloaded: "&aKonfiguration und Sprache neu geladen."
+
+# Befehle - Berechtigungen
+error-no-perm-start: "&cDu hast keine Berechtigung, die Challenge zu starten."
+error-no-perm-pause: "&cDu hast keine Berechtigung, die Challenge zu pausieren/fortzusetzen."
+error-no-perm-stop: "&cDu hast keine Berechtigung, die Challenge zu beenden."
+error-no-perm-reset: "&cDu hast keine Berechtigung, die Challenge zurückzusetzen."
+error-no-perm-lang: "&cDu hast keine Berechtigung, die Sprache zu ändern."
+error-no-perm-autosave: "&cDu hast keine Berechtigung, den Autosave-Timer zu ändern."
+error-no-perm-reload: "&cDu hast keine Berechtigung, das Plugin neu zu laden."
+
+# Befehle - Logik-Fehler
+start-fail-running: "&cDie Challenge läuft bereits. Benutze /achallenge pause oder /achallenge stop."
+pause-fail: "&cNur eine laufende Challenge kann pausiert werden."
+resume-fail: "&cNur eine pausierte Challenge kann fortgesetzt werden."
+stop-fail: "&cDie Challenge kann nicht beendet werden, da sie nicht läuft oder bereits beendet ist."
+stop-confirm-message: "&eBist du sicher? Der Timer stoppt, aber der Fortschritt bleibt erhalten. Benutze &6/achallenge stop confirm&e."
+reset-confirm-title: "&c&lACHTUNG: Dieser Befehl setzt die GESAMTE Challenge zurück!"
+reset-confirm-line1: "&7Alle Plugin-Daten (Timer, Liste) werden gelöscht."
+reset-confirm-line2: "&7Alle Online-Spieler verlieren ihre Advancements, Items und XP."
+reset-confirm-line3: "&eWenn du dir absolut sicher bist, tippe &6/achallenge reset confirm&e."
+autosave-usage: "&eBenutzung: /achallenge autosave <Sekunden>"
+autosave-fail-number: "&cBitte gib eine gültige Zahl für die Sekunden an."
+autosave-fail-range: "&cDas Intervall muss mindestens 5 Sekunden betragen."
+autosave-success: "&aDas automatische Speicherintervall wurde auf &e%seconds% Sekunden &agesetzt."
+lang-set: "&aSprache auf %lang% gesetzt."
+lang-fail-not-found: "&cSprache '%arg%' nicht gefunden. Verfügbar: de, en, pl."
+
+# Befehle - Erfolgs-Nachrichten (Broadcasts)
+start-title: "&a&l     CHALLENGE WURDE GESTARTET!"
+start-by: "&7Gestartet von: &e%player%"
+start-gl: "&7Viel Erfolg!"
+pause-title: "&b&l      CHALLENGE WURDE PAUSIERT"
+pause-by: "&7Pausiert von: &e%player%"
+pause-info: "&7Der Timer, Spieleraktionen und Mobs sind nun eingefroren."
+resume-title: "&a&l     CHALLENGE WIRD FORTGESETZT"
+resume-by: "&7Fortgesetzt von: &e%player%"
+resume-gl: "&7Viel Erfolg weiterhin!"
+stop-title: "&6&l        CHALLENGE WURDE BEENDET"
+stop-by: "&7Beendet von: &e%player%"
+stop-info: "&7Der Fortschritt kann weiterhin mit /agui und /advancements angesehen werden."
+lang-change-title: "&a&lSPRACHE GEÄNDERT"
+lang-change-info: "&7Die Sprache des Plugins wurde auf &e%lang% &7gesetzt."
+reset-broadcast: "&c&lDie All Advancements Challenge wird zurückgesetzt!"
+reset-player-message: "&aDein Fortschritt wurde zurückgesetzt!"
+reset-success-broadcast: "&a&lDie Challenge wurde erfolgreich zurückgesetzt! Auf ein Neues!"
+reset-admin-info-title: "&6Reset abgeschlossen! Alle Spieler- und Plugin-Daten sind zurückgesetzt."
+reset-admin-info-start: "&6Benutze /achallenge start um die neue Runde zu beginnen."
+reset-admin-info-world-title: "&eFür eine komplett neue Welt (optional):"
+reset-admin-info-world-1: "&71. Stoppe den Server jetzt mit dem 'stop'-Befehl."
+reset-admin-info-world-2: "&72. Lösche im Server-Ordner die Ordner: 'world', 'world_nether', 'world_the_end'."
+reset-admin-info-world-3: "&73. Starte den Server neu."
+
+# Sonstige Benachrichtigungen
+advancement-prefix: "&6[Advancements!]"
+advancement-title: "              %prefix%"
+advancement-player: "&fSpieler: &e%player%"
+advancement-reached: "&fErreicht: &b&o%advancement%"
+pause-actionbar-message: "&b&lDie Challenge ist pausiert!"
+
+# /advancements Befehl
+history-title: "&6--- Alle erreichten Advancements ---"
+history-empty: "&7Bisher wurden noch keine Advancements gemacht."
+history-footer: "&6------------------------------------"
+history-entry: "&7[%time%] &e%player% &f-> &b%advancement%"
+
+# /agui Befehl
+gui-title: "Advancements Seite %page%"
+gui-item-unearned: "&7&l%title%"
+gui-item-unearned-lore: "&8Noch nicht erreicht."
+gui-item-earned: "&a&l%title%"
+gui-item-earned-lore-desc: "&o%description%"
+gui-item-earned-lore-by: "&7Erreicht von: &e%player%"
+gui-item-earned-lore-game-time: "&7Ingame-Zeit: &e%time%"
+gui-item-earned-lore-real-time: "&7Echte Zeit: &e%realtime%"
+gui-item-next-page: "&eNächste Seite"
+gui-item-next-page-lore: "Klicke hier, um zu Seite %page% zu gelangen."
+gui-item-prev-page: "&eVorherige Seite"
+gui-item-prev-page-lore: "Klicke hier, um zu Seite %page% zu gelangen."

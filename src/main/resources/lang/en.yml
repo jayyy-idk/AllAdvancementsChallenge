@@ -1,0 +1,97 @@
+# =========================================
+# English Language File
+# =========================================
+lang-name: "English"
+
+# General Messages
+error-no-permission: "&cYou do not have permission to use this command."
+error-no-player: "This command can only be executed by a player."
+error-unknown-command: "&cUnknown command. Use: %usage%"
+line-separator: "&e=========================================="
+
+# BossBar
+bossbar-title: "&6%earned%/%total% Advancements &f| &e%time%"
+bossbar-paused: "&b&lPAUSED"
+bossbar-waiting: "&c&lWAITING FOR START | Use /achallenge start"
+
+# Commands (/achallenge)
+usage: "&eUsage: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"
+config-reloaded: "&aConfiguration and language reloaded."
+
+# Commands - Permissions
+error-no-perm-start: "&cYou don't have permission to start the challenge."
+error-no-perm-pause: "&cYou don't have permission to pause/resume the challenge."
+error-no-perm-stop: "&cYou don't have permission to stop the challenge."
+error-no-perm-reset: "&cYou don't have permission to reset the challenge."
+error-no-perm-lang: "&cYou don't have permission to change the language."
+error-no-perm-autosave: "&cYou don't have permission to change the autosave timer."
+error-no-perm-reload: "&cYou don't have permission to reload the plugin."
+
+# Commands - Logic Errors
+start-fail-running: "&cThe challenge is already running. Use /achallenge pause or /achallenge stop first."
+pause-fail: "&cOnly a running challenge can be paused."
+resume-fail: "&cOnly a paused challenge can be resumed."
+stop-fail: "&cThe challenge cannot be stopped because it is not running or already ended."
+stop-confirm-message: "&eAre you sure you want to stop the challenge? The timer and count will stop, but progress will be saved for viewing. Use &6/achallenge stop confirm&e."
+reset-confirm-title: "&c&lWARNING: This command will reset the ENTIRE challenge!"
+reset-confirm-line1: "&7All plugin data (timer, list) will be deleted."
+reset-confirm-line2: "&7All online players will lose their advancements, items, and XP."
+reset-confirm-line3: "&eIf you are absolutely sure, type &6/achallenge reset confirm&e."
+autosave-usage: "&eUsage: /achallenge autosave <seconds>"
+autosave-fail-number: "&cPlease provide a valid number for the seconds."
+autosave-fail-range: "&cThe interval must be at least 5 seconds."
+autosave-success: "&aThe auto-save interval has been set to &e%seconds% seconds&a."
+lang-set: "&aLanguage set to %lang%."
+lang-fail-not-found: "&cLanguage '%arg%' not found. Available: de, en, pl."
+
+# Commands - Success Messages (Broadcasts)
+start-title: "&a&l      CHALLENGE HAS STARTED!"
+start-by: "&7Started by: &e%player%"
+start-gl: "&7Good luck!"
+pause-title: "&b&l       CHALLENGE PAUSED"
+pause-by: "&7Paused by: &e%player%"
+pause-info: "&7The timer, player actions, and mobs are now frozen."
+resume-title: "&a&l    CHALLENGE HAS RESUMED"
+resume-by: "&7Resumed by: &e%player%"
+resume-gl: "&7Good luck and have fun!"
+stop-title: "&6&l         CHALLENGE ENDED"
+stop-by: "&7Ended by: &e%player%"
+stop-info: "&7Progress can still be viewed with /agui and /advancements."
+lang-change-title: "&a&lLANGUAGE CHANGED"
+lang-change-info: "&7The plugin language has been set to &e%lang%&7."
+reset-broadcast: "&c&lThe All Advancements Challenge is being reset!"
+reset-player-message: "&aYour progress has been reset!"
+reset-success-broadcast: "&a&lThe challenge has been successfully reset! Good luck on the next run!"
+reset-admin-info-title: "&6Reset complete! All player and plugin data has been reset."
+reset-admin-info-start: "&6Use /achallenge start to begin the new round."
+reset-admin-info-world-title: "&eFor a completely new world (optional):"
+reset-admin-info-world-1: "&71. Stop the server now with the 'stop' command."
+reset-admin-info-world-2: "&72. In the server directory, delete the folders: 'world', 'world_nether', 'world_the_end'."
+reset-admin-info-world-3: "&73. Restart the server."
+
+# Other Notifications
+advancement-prefix: "&6[Advancements!]"
+advancement-title: "              %prefix%"
+advancement-player: "&fPlayer: &e%player%"
+advancement-reached: "&fReached: &b&o%advancement%"
+pause-actionbar-message: "&b&lThe challenge is paused!"
+
+# /advancements Command
+history-title: "&6--- All Earned Advancements ---"
+history-empty: "&7No advancements have been earned yet."
+history-footer: "&6------------------------------------"
+history-entry: "&7[%time%] &e%player% &f-> &b%advancement%"
+
+# /agui Command
+gui-title: "Advancements Page %page%"
+gui-item-unearned: "&7&l%title%"
+gui-item-unearned-lore: "&8Not yet achieved."
+gui-item-earned: "&a&l%title%"
+gui-item-earned-lore-desc: "&o%description%"
+gui-item-earned-lore-by: "&7Achieved by: &e%player%"
+gui-item-earned-lore-game-time: "&7Ingame-Time: &e%time%"
+gui-item-earned-lore-real-time: "&7Real-Time: &e%realtime%"
+gui-item-next-page: "&eNext Page"
+gui-item-next-page-lore: "Click here to go to page %page%."
+gui-item-prev-page: "&ePrevious Page"
+gui-item-prev-page-lore: "Click here to go to page %page%."

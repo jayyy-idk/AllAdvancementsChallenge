@@ -1,0 +1,21 @@
+# Configuration file for the AllAchievementsChallenge Plugin
+
+# What language should be used?
+# Available: de, en, pl (default is en).
+language: 'en'
+
+# Settings for the Bossbar
+bossbar:
+  # What color should the bossbar be?
+  # Valid values: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+  color: 'YELLOW'
+
+# Settings for messages
+messages:
+  # What prefix should be in front of the advancement announcement?
+  # You can use color codes with '&' (e.g., &6 for gold).
+  prefix: '&6[Advancements!]'
+
+# How many seconds should be between automatic saves?
+# Values that are too low (below 5) can impact performance.
+autosave-interval-seconds: 10

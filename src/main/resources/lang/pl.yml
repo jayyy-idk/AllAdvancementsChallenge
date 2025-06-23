@@ -1,0 +1,97 @@
+# =========================================
+# Plik językowy - Polski
+# =========================================
+lang-name: "Polski"
+
+# Ogólne wiadomości
+error-no-permission: "&cNie masz uprawnień do użycia tej komendy."
+error-no-player: "Ta komenda może być wykonana tylko przez gracza."
+error-unknown-command: "&cNieznana komenda. Użyj: %usage%"
+line-separator: "&e=========================================="
+
+# BossBar
+bossbar-title: "&6%earned%/%total% Osiągnięć &f| &e%time%"
+bossbar-paused: "&b&lWSTRZYMANO"
+bossbar-waiting: "&c&lOCZEKIWANIE NA START | Użyj /achallenge start"
+
+# Komendy (/achallenge)
+usage: "&eUżyj: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"
+config-reloaded: "&aKonfiguracja i język przeładowane."
+
+# Komendy - Uprawnienia
+error-no-perm-start: "&cNie masz uprawnień, aby rozpocząć wyzwanie."
+error-no-perm-pause: "&cNie masz uprawnień, aby wstrzymać/wznowić wyzwanie."
+error-no-perm-stop: "&cNie masz uprawnień, aby zakończyć wyzwanie."
+error-no-perm-reset: "&cNie masz uprawnień, aby zresetować wyzwanie."
+error-no-perm-lang: "&cNie masz uprawnień, aby zmienić język."
+error-no-perm-autosave: "&cNie masz uprawnień, aby zmienić interwał autozapisu."
+error-no-perm-reload: "&cNie masz uprawnień, aby przeładować wtyczkę."
+
+# Komendy - Błędy logiczne
+start-fail-running: "&cWyzwanie już trwa. Użyj /achallenge pause lub /achallenge stop."
+pause-fail: "&cTylko trwające wyzwanie może zostać wstrzymane."
+resume-fail: "&cTylko wstrzymane wyzwanie może zostać wznowione."
+stop-fail: "&cWyzwanie nie może zostać zatrzymane, ponieważ nie jest aktywne lub już się zakończyło."
+stop-confirm-message: "&eCzy na pewno chcesz zakończyć wyzwanie? Czas i licznik zatrzymają się, ale postęp zostanie zapisany do wglądu. Użyj &6/achallenge stop confirm&e."
+reset-confirm-title: "&c&lUWAGA: Ta komenda zresetuje CAŁE wyzwanie!"
+reset-confirm-line1: "&7Wszystkie dane wtyczki (czas, lista) zostaną usunięte."
+reset-confirm-line2: "&7Wszyscy gracze online stracą swoje osiągnięcia, przedmioty i XP."
+reset-confirm-line3: "&eJeśli jesteś absolutnie pewien, wpisz &6/achallenge reset confirm&e."
+autosave-usage: "&eUżycie: /achallenge autosave <sekundy>"
+autosave-fail-number: "&cProszę podać prawidłową liczbę sekund."
+autosave-fail-range: "&cInterwał musi wynosić co najmniej 5 sekund."
+autosave-success: "&aInterwał automatycznego zapisu został ustawiony na &e%seconds% sekund&a."
+lang-set: "&aJęzyk ustawiony na %lang%."
+lang-fail-not-found: "&cJęzyk '%arg%' nie został znaleziony. Dostępne: de, en, pl."
+
+# Komendy - Wiadomości o sukcesie (Broadcasts)
+start-title: "&a&l      WYZWANIE ROZPOCZĘTE!"
+start-by: "&7Rozpoczęte przez: &e%player%"
+start-gl: "&7Powodzenia!"
+pause-title: "&b&l       WYZWANIE WSTRZYMANE"
+pause-by: "&7Wstrzymane przez: &e%player%"
+pause-info: "&7Czas, akcje graczy i moby są teraz zamrożone."
+resume-title: "&a&l    WYZWANIE WZNOWIONE"
+resume-by: "&7Wznowione przez: &e%player%"
+resume-gl: "&7Powodzenia i dobrej zabawy!"
+stop-title: "&6&l         WYZWANIE ZAKOŃCZONE"
+stop-by: "&7Zakończone przez: &e%player%"
+stop-info: "&7Postęp można nadal przeglądać za pomocą /agui i /advancements."
+lang-change-title: "&a&lZMIENIONO JĘZYK"
+lang-change-info: "&7Język wtyczki został ustawiony na &e%lang%&7."
+reset-broadcast: "&c&lWyzwanie 'Wszystkie Osiągnięcia' jest resetowane!"
+reset-player-message: "&aTwój postęp został zresetowany!"
+reset-success-broadcast: "&a&lWyzwanie zostało pomyślnie zresetowane! Powodzenia w nowej rundzie!"
+reset-admin-info-title: "&6Reset zakończony! Wszystkie dane graczy i wtyczki zostały zresetowane."
+reset-admin-info-start: "&6Użyj /achallenge start, aby rozpocząć nową rundę."
+reset-admin-info-world-title: "&eDla całkowicie nowego świata (opcjonalnie):"
+reset-admin-info-world-1: "&71. Zatrzymaj serwer teraz za pomocą komendy 'stop'."
+reset-admin-info-world-2: "&72. W katalogu serwera usuń foldery: 'world', 'world_nether', 'world_the_end'."
+reset-admin-info-world-3: "&73. Uruchom serwer ponownie."
+
+# Inne powiadomienia
+advancement-prefix: "&6[Osiągnięcia!]"
+advancement-title: "              %prefix%"
+advancement-player: "&fGracz: &e%player%"
+advancement-reached: "&fZdobyto: &b&o%advancement%"
+pause-actionbar-message: "&b&lWyzwanie jest wstrzymane!"
+
+# Komenda /advancements
+history-title: "&6--- Wszystkie Zdobyte Osiągnięcia ---"
+history-empty: "&7Żadne osiągnięcia nie zostały jeszcze zdobyte."
+history-footer: "&6------------------------------------"
+history-entry: "&7[%time%] &e%player% &f-> &b%advancement%"
+
+# Komenda /agui
+gui-title: "Osiągnięcia Strona %page%"
+gui-item-unearned: "&7&l%title%"
+gui-item-unearned-lore: "&8Jeszcze nie osiągnięte."
+gui-item-earned: "&a&l%title%"
+gui-item-earned-lore-desc: "&o%description%"
+gui-item-earned-lore-by: "&7Osiągnięte przez: &e%player%"
+gui-item-earned-lore-game-time: "&7Czas w grze: &e%time%"
+gui-item-earned-lore-real-time: "&7Czas rzeczywisty: &e%realtime%"
+gui-item-next-page: "&eNastępna strona"
+gui-item-next-page-lore: "Kliknij tutaj, aby przejść na stronę %page%."
+gui-item-prev-page: "&ePoprzednia strona"
+gui-item-prev-page-lore: "Kliknij tutaj, aby przejść na stronę %page%."
