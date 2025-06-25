@@ -45,6 +45,85 @@ public class ChallengeCommand implements CommandExecutor {
         }
     }
 
+    private boolean handleStart(CommandSender sender) {
+        if (!sender.hasPermission("challenge.admin.start")) {
+            sender.sendMessage(plugin.getLangManager().get("error-no-perm-start"));
+            return true;
+        }
+        Main.ChallengeState currentState = plugin.getChallengeState();
+        if (currentState == Main.ChallengeState.RUNNING || currentState == Main.ChallengeState.PAUSED) {
+            sender.sendMessage(plugin.getLangManager().get("start-fail-running"));
+            return true;
+        }
+        if (currentState == Main.ChallengeState.ENDED) {
+            plugin.getChallengeTimer().setSecondsElapsed(0);
+        }
+        if (currentState == Main.ChallengeState.WAITING_TO_START) {
+            resetAllOnlinePlayers();
+        }
+        plugin.setChallengeState(Main.ChallengeState.RUNNING);
+        Bukkit.broadcastMessage(" ");
+        Bukkit.broadcastMessage(plugin.getLangManager().get("line-separator"));
+        Bukkit.broadcastMessage(plugin.getLangManager().get("start-title"));
+        Bukkit.broadcastMessage(plugin.getLangManager().get("line-separator"));
+        Bukkit.broadcastMessage(plugin.getLangManager().get("start-by").replace("%player%", sender.getName()));
+        Bukkit.broadcastMessage(plugin.getLangManager().get("start-gl"));
+        Bukkit.broadcastMessage(" ");
+        return true;
+    }
+
+    private boolean handleReset(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("challenge.admin.reset")) {
+            sender.sendMessage(plugin.getLangManager().get("error-no-perm-reset"));
+            return true;
+        }
+        if (args.length == 2 && args[1].equalsIgnoreCase("confirm")) {
+            performReset(sender);
+            return true;
+        }
+        sender.sendMessage(plugin.getLangManager().get("line-separator"));
+        sender.sendMessage(plugin.getLangManager().get("reset-confirm-title"));
+        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line1"));
+        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line2"));
+        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line3"));
+        sender.sendMessage(plugin.getLangManager().get("line-separator"));
+        return true;
+    }
+
+    private void performReset(CommandSender sender) {
+        Bukkit.broadcastMessage(plugin.getLangManager().get("reset-broadcast"));
+        plugin.getAchievementHistory().clear();
+        plugin.getChallengeTimer().setSecondsElapsed(0);
+        resetAllOnlinePlayers();
+        plugin.setChallengeState(Main.ChallengeState.WAITING_TO_START, true);
+        plugin.getDataManager().saveData();
+        Bukkit.broadcastMessage(plugin.getLangManager().get("reset-success-broadcast"));
+        sender.sendMessage(plugin.getLangManager().get("line-separator"));
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-title"));
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-start"));
+        sender.sendMessage(" ");
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-title"));
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-1"));
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-2"));
+        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-3"));
+        sender.sendMessage(plugin.getLangManager().get("line-separator"));
+    }
+
+    private void resetAllOnlinePlayers() {
+        ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            String playerName = player.getName();
+            Bukkit.dispatchCommand(console, "advancement revoke " + playerName + " everything");
+            Bukkit.dispatchCommand(console, "clear " + playerName);
+            Bukkit.dispatchCommand(console, "experience set " + playerName + " 0 points");
+            player.setHealth(20.0);
+            player.setFoodLevel(20);
+            player.teleport(player.getWorld().getSpawnLocation());
+            player.sendMessage(plugin.getLangManager().get("reset-player-message"));
+        }
+        plugin.getLogger().info("Spieler-Daten wurden für alle Online-Spieler zurückgesetzt.");
+    }
+
     private boolean handleReload(CommandSender sender) {
         if (!sender.hasPermission("challenge.admin.reload")) {
             sender.sendMessage(plugin.getLangManager().get("error-no-perm-reload"));
@@ -106,32 +185,6 @@ public class ChallengeCommand implements CommandExecutor {
         sender.sendMessage(plugin.getLangManager().get("line-separator"));
         sender.sendMessage(plugin.getLangManager().get("lang-change-info").replace("%lang%", langName));
         sender.sendMessage(" ");
-        return true;
-    }
-
-    private boolean handleStart(CommandSender sender) {
-        if (!sender.hasPermission("challenge.admin.start")) {
-            sender.sendMessage(plugin.getLangManager().get("error-no-perm-start"));
-            return true;
-        }
-        Main.ChallengeState currentState = plugin.getChallengeState();
-        if (currentState == Main.ChallengeState.RUNNING || currentState == Main.ChallengeState.PAUSED) {
-            sender.sendMessage(plugin.getLangManager().get("start-fail-running"));
-            return true;
-        }
-
-        if (currentState == Main.ChallengeState.ENDED) {
-            plugin.getChallengeTimer().setSecondsElapsed(0);
-        }
-
-        plugin.setChallengeState(Main.ChallengeState.RUNNING);
-        Bukkit.broadcastMessage(" ");
-        Bukkit.broadcastMessage(plugin.getLangManager().get("line-separator"));
-        Bukkit.broadcastMessage(plugin.getLangManager().get("start-title"));
-        Bukkit.broadcastMessage(plugin.getLangManager().get("line-separator"));
-        Bukkit.broadcastMessage(plugin.getLangManager().get("start-by").replace("%player%", sender.getName()));
-        Bukkit.broadcastMessage(plugin.getLangManager().get("start-gl"));
-        Bukkit.broadcastMessage(" ");
         return true;
     }
 
@@ -197,56 +250,5 @@ public class ChallengeCommand implements CommandExecutor {
         }
         sender.sendMessage(plugin.getLangManager().get("stop-confirm-message"));
         return true;
-    }
-
-    private boolean handleReset(CommandSender sender, String[] args) {
-        if (!sender.hasPermission("challenge.admin.reset")) {
-            sender.sendMessage(plugin.getLangManager().get("error-no-perm-reset"));
-            return true;
-        }
-        if (args.length == 2 && args[1].equalsIgnoreCase("confirm")) {
-            performReset(sender);
-            return true;
-        }
-        sender.sendMessage(plugin.getLangManager().get("line-separator"));
-        sender.sendMessage(plugin.getLangManager().get("reset-confirm-title"));
-        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line1"));
-        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line2"));
-        sender.sendMessage(plugin.getLangManager().get("reset-confirm-line3"));
-        sender.sendMessage(plugin.getLangManager().get("line-separator"));
-        return true;
-    }
-
-    private void performReset(CommandSender sender) {
-        Bukkit.broadcastMessage(plugin.getLangManager().get("reset-broadcast"));
-        plugin.getAchievementHistory().clear();
-        plugin.getChallengeTimer().setSecondsElapsed(0);
-
-        ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            String playerName = player.getName();
-            Bukkit.dispatchCommand(console, "advancement revoke " + playerName + " everything");
-            Bukkit.dispatchCommand(console, "clear " + playerName);
-            Bukkit.dispatchCommand(console, "experience set " + playerName + " 0 points");
-            player.setHealth(20.0);
-            player.setFoodLevel(20);
-            player.teleport(player.getWorld().getSpawnLocation());
-            player.sendMessage(plugin.getLangManager().get("reset-player-message"));
-        }
-
-        plugin.setChallengeState(Main.ChallengeState.WAITING_TO_START, true);
-        plugin.getDataManager().saveData();
-
-        Bukkit.broadcastMessage(plugin.getLangManager().get("reset-success-broadcast"));
-
-        sender.sendMessage(plugin.getLangManager().get("line-separator"));
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-title"));
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-start"));
-        sender.sendMessage(" ");
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-title"));
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-1"));
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-2"));
-        sender.sendMessage(plugin.getLangManager().get("reset-admin-info-world-3"));
-        sender.sendMessage(plugin.getLangManager().get("line-separator"));
     }
 }

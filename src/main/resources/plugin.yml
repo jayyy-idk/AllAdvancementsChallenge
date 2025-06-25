@@ -1,40 +1,40 @@
 name: AllAdvancementsChallenge
-version: 0.1.9
+version: 0.2.5
 main: de.idk_jay.Main
 api-version: '1.21'
 author: idk_jay
 commands:
   advancements:
-    description: Zeigt die Liste aller erreichten Advancements an.
+    description: Displays the list of all earned advancements.
     usage: /advancements
   agui:
-    description: Öffnet die Advancements GUI.
+    description: Opens the Advancements GUI.
     usage: /agui
   achallenge:
-    description: Verwaltet die Challenge.
+    description: Manages the challenge.
     usage: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>
 permissions:
   challenge.admin.start:
-    description: Erlaubt das Starten der Challenge.
+    description: Allows starting the challenge.
     default: op
   challenge.admin.pause:
-    description: Erlaubt das Pausieren und Fortsetzen der Challenge.
+    description: Allows pausing and resuming the challenge.
     default: op
   challenge.admin.stop:
-    description: Erlaubt das Beenden der Challenge.
+    description: Allows stopping the challenge.
     default: op
   challenge.admin.reset:
-    description: Erlaubt das Zurücksetzen der Challenge.
+    description: Allows resetting the challenge.
     default: op
   challenge.admin.lang:
-    description: Erlaubt das Ändern der Sprache.
+    description: Allows changing the language.
     default: op
   challenge.admin.autosave:
-    description: Erlaubt das Ändern des Autosave-Intervalls.
+    description: Allows changing the autosave interval.
     default: op
   challenge.admin.reload:
-    description: Erlaubt das Neuladen des Plugins.
+    description: Allows reloading the plugin.
     default: op
   challenge.admin.bypasspause:
-    description: Erlaubt Bewegung und Interaktion im Pausenmodus.
+    description: Allows movement and interaction during pause mode.
     default: op

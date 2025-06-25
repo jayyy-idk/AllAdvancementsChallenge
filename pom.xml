@@ -6,7 +6,7 @@
 
     <groupId>de.idk_jay</groupId>
     <artifactId>AllAdvancementsChallenge</artifactId>
-    <version>0.1.9</version>
+    <version>0.2.5</version>
     <packaging>jar</packaging>
 
     <properties>

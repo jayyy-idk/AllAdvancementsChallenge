@@ -13,6 +13,12 @@ line-separator: "&e=========================================="
 bossbar-title: "&6%earned%/%total% Advancements &f| &e%time%"
 bossbar-paused: "&b&lPAUSED"
 bossbar-waiting: "&c&lWAITING FOR START | Use /achallenge start"
+bossbar-completed-title: "&a&lCHALLENGE COMPLETE! &7- &eFinal Time: %time%"
+
+# Finale
+challenge-complete-title: "&6&lCHALLENGE COMPLETED!"
+challenge-complete-subtitle: "&eAll %total% advancements have been achieved!"
+challenge-complete-final-time: "&7Final Time: &a%time%"
 
 # Commands (/achallenge)
 usage: "&eUsage: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"

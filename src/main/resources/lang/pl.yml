@@ -13,6 +13,12 @@ line-separator: "&e=========================================="
 bossbar-title: "&6%earned%/%total% Osiągnięć &f| &e%time%"
 bossbar-paused: "&b&lWSTRZYMANO"
 bossbar-waiting: "&c&lOCZEKIWANIE NA START | Użyj /achallenge start"
+bossbar-completed-title: "&a&lWYZWANIE UKOŃCZONE! &7- &eCzas końcowy: %time%"
+
+# Finał
+challenge-complete-title: "&6&lWYZWANIE UKOŃCZONE!"
+challenge-complete-subtitle: "&eWszystkie %total% osiągnięć zostały zdobyte!"
+challenge-complete-final-time: "&7Czas końcowy: &a%time%"
 
 # Komendy (/achallenge)
 usage: "&eUżyj: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"

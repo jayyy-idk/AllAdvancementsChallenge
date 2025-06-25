@@ -10,6 +10,9 @@ bossbar:
   # Valid values: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
   color: 'YELLOW'
 
+  # What color should the bossbar be when the challenge is completed?
+  completion-color: 'GREEN'
+
 # Settings for messages
 messages:
   # What prefix should be in front of the advancement announcement?

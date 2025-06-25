@@ -13,6 +13,12 @@ line-separator: "&e=========================================="
 bossbar-title: "&6%earned%/%total% Advancements &f| &e%time%"
 bossbar-paused: "&b&lPAUSIERT"
 bossbar-waiting: "&c&lWARTE AUF START | Benutze /achallenge start"
+bossbar-completed-title: "&a&lCHALLENGE GESCHAFFT! &7- &eFinalzeit: %time%"
+
+# Finale
+challenge-complete-title: "&6&lCHALLENGE ABGESCHLOSSEN!"
+challenge-complete-subtitle: "&eAlle %total% Advancements wurden erreicht!"
+challenge-complete-final-time: "&7Endzeit: &a%time%"
 
 # Befehle (/achallenge)
 usage: "&eBenutzung: /achallenge <start|pause|resume|stop|reset|lang|autosave|reload>"
@@ -95,3 +101,4 @@ gui-item-next-page: "&eNächste Seite"
 gui-item-next-page-lore: "Klicke hier, um zu Seite %page% zu gelangen."
 gui-item-prev-page: "&eVorherige Seite"
 gui-item-prev-page-lore: "Klicke hier, um zu Seite %page% zu gelangen."
+

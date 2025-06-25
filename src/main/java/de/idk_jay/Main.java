@@ -46,20 +46,16 @@ public final class Main extends JavaPlugin {
         this.dataManager.loadData();
         createChallengeBossBar();
         this.challengeTimerTask = this.challengeTimer.runTaskTimer(this, 0L, 20L);
-
         restartAutosaveTask();
-
         getServer().getPluginManager().registerEvents(new AdvancementListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerConnectionListener(this), this);
         getServer().getPluginManager().registerEvents(new GuiListener(this), this);
         getServer().getPluginManager().registerEvents(new PauseListener(this), this);
-
         this.getCommand("advancements").setExecutor(new HistoryCommand(this));
         this.getCommand("agui").setExecutor(new GuiCommand(this));
         this.getCommand("achallenge").setExecutor(new ChallengeCommand(this));
-
         getLogger().info("Plugin erfolgreich aktiviert. Es gibt " + totalAdvancements + " sichtbare Advancements.");
-        setChallengeState(this.currentState, true);
+        setChallengeState(this.currentState, false);
     }
 
     @Override
@@ -110,18 +106,18 @@ public final class Main extends JavaPlugin {
         });
     }
 
-    private BarColor getConfigBarColor() {
-        String colorString = getConfig().getString("bossbar.color", "YELLOW").toUpperCase();
+    private BarColor getConfigBarColor(String path, String defaultColor) {
+        String colorString = getConfig().getString(path, defaultColor).toUpperCase();
         try {
             return BarColor.valueOf(colorString);
         } catch (IllegalArgumentException e) {
-            getLogger().warning("Ungültige Farbe '" + colorString + "' in der config.yml! Benutze stattdessen YELLOW.");
-            return BarColor.YELLOW;
+            getLogger().warning("Ungültige Farbe '" + colorString + "' in der config.yml! Benutze stattdessen " + defaultColor + ".");
+            return BarColor.valueOf(defaultColor);
         }
     }
 
     private void createChallengeBossBar() {
-        this.challengeBossBar = Bukkit.createBossBar("Challenge Timer", getConfigBarColor(), BarStyle.SOLID);
+        this.challengeBossBar = Bukkit.createBossBar("Challenge Timer", getConfigBarColor("bossbar.color", "YELLOW"), BarStyle.SOLID);
     }
 
     public void updateBossBar() {
@@ -158,13 +154,16 @@ public final class Main extends JavaPlugin {
         return currentState;
     }
 
+    public int getTotalAdvancements() {
+        return totalAdvancements;
+    }
+
     public void setChallengeState(ChallengeState newState) {
         setChallengeState(newState, true);
     }
 
     public void setChallengeState(ChallengeState newState, boolean performSideEffects) {
         this.currentState = newState;
-
         if (performSideEffects) {
             ConsoleCommandSender console = Bukkit.getConsoleSender();
             if (newState == ChallengeState.RUNNING) {
@@ -181,10 +180,9 @@ public final class Main extends JavaPlugin {
                 }
             }
         }
-
         switch (newState) {
             case RUNNING:
-                challengeBossBar.setColor(getConfigBarColor());
+                challengeBossBar.setColor(getConfigBarColor("bossbar.color", "YELLOW"));
                 updateBossBar();
                 break;
             case PAUSED:
@@ -201,7 +199,12 @@ public final class Main extends JavaPlugin {
                 break;
             case ENDED:
                 if (challengeBossBar != null) {
-                    challengeBossBar.setVisible(false);
+                    challengeBossBar.setVisible(true);
+                    challengeBossBar.setColor(getConfigBarColor("bossbar.completion-color", "GREEN"));
+                    challengeBossBar.setProgress(1.0);
+                    String finalTime = getChallengeTimer().getFormattedTime();
+                    String title = getLangManager().get("bossbar-completed-title").replace("%time%", finalTime);
+                    challengeBossBar.setTitle(title);
                 }
                 break;
         }
