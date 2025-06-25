@@ -13,9 +13,14 @@ Kompleksowa wtyczka Spigot zaprojektowana do zarządzania i ulepszania wyzwania 
 * **💾 Trwałe Przechowywanie Danych:** Cały postęp, stoper i status wyzwania są automatycznie zapisywane i przetrwają restarty serwera oraz awarie.
 * **🌐 Wsparcie Wielojęzyczne:** Pełne wsparcie dla języka niemieckiego, angielskiego i polskiego. Język można zmieniać na żywo w grze lub poprzez plik konfiguracyjny.
 * **🖥️ Graficzny Interfejs Użytkownika (GUI):** Interaktywne, paginowane menu (`/agui`) do przeglądania wszystkich osiągnięć. Ukończone osiągnięcia są podświetlone i zawierają szczegóły, takie jak gracz i znaczniki czasu.
-* **👑 Pełna Kontrola Admina:** Kompletny zestaw komend do zarządzania cyklem życia wyzwania.
+* **👑 Pełna Kontrola Admina:** Kompletny zestaw komend do zarządzania cyklem życia wyzwania:
+    * **Start:** Rozpoczyna wyzwanie i wyłącza standardowe komunikaty o osiągnięciach, aby czat był czystszy.
+    * **Pause/Resume:** Całkowicie zamraża grę (stoper, graczy, moby) i płynnie ją wznawia.
+    * **Stop:** Grzecznie kończy wyzwanie, zachowując wszystkie dane do wglądu.
+    * **Reset:** Potężna komenda do resetowania wszystkich danych graczy i wtyczki, z krokiem potwierdzającym.
 * **⚙️ W Pełni Konfigurowalna:** Dostosuj kolor Boss Bara, wiadomości i ustawienia techniczne za pomocą prostego pliku `config.yml`.
 * **🎨 Dopracowane Powiadomienia:** Wszystkie ważne wydarzenia są komunikowane za pomocą pięknie sformatowanych, jasnych wiadomości na czacie.
+* **🎉 Wielki Finał:** Konfigurowalny "Zwycięski" Boss Bar, ogłoszenie na cały serwer i pokaz fajerwerków świętują ukończenie wyzwania.
 
 ## 🚀 Instalacja
 
@@ -40,6 +45,8 @@ bossbar:
   # Jaki kolor powinien mieć Boss Bar?
   # Dopuszczalne wartości: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
   color: 'YELLOW'
+  # Jaki kolor powinien mieć Boss Bar po ukończeniu wyzwania?
+  completion-color: 'GREEN'
 
 # Ustawienia wiadomości
 messages:

@@ -20,10 +20,11 @@ A comprehensive Spigot plugin designed to manage and enhance an "All Advancement
     * **Reset:** A powerful reset command for all player and plugin data, complete with a confirmation step.
 * **⚙️ Fully Configurable:** Customize the Boss Bar color, messages, and technical settings via a simple `config.yml`.
 * **🎨 Polished Notifications:** All important events are communicated through beautifully formatted, clear messages in chat.
+* **🎉 Grand Finale:** A configurable "Victory" Boss Bar, a server-wide announcement, and a firework show celebrate the completion of the challenge.
 
 ## 🚀 Installation
 
-1.  Download the latest `.jar` file from the [Releases Page](https://github.com/jayyy-idk/AllAdvancementsChallenge/releases/tag/v.0.1.9).
+1.  Download the latest `.jar` file from the [Releases Page](https://github.com/jayyy-idk/AllAdvancementsChallenge/releases).
 2.  Place the `.jar` file into your Spigot/Paper server's `plugins` folder.
 3.  Restart or reload your server.
 4.  The plugin will generate an `AllAchievementsChallenge` folder containing the configuration and language files.
@@ -44,6 +45,8 @@ bossbar:
   # What color should the bossbar be?
   # Valid values: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
   color: 'YELLOW'
+  # What color should the bossbar be when the challenge is completed?
+  completion-color: 'GREEN'
 
 # Settings for messages
 messages:

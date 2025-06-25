@@ -20,6 +20,7 @@ Ein umfassendes Spigot-Plugin, das entwickelt wurde, um eine "All Advancements"-
     * **Reset:** Setzt die gesamte Challenge für einen Neustart zurück, inklusive aller Spielerdaten.
 * **⚙️ Vollständig Konfigurierbar:** Passe die Bossbar-Farbe, Nachrichten und technische Einstellungen über eine einfach zu bedienende `config.yml` an.
 * **🎨 Professionelle Benachrichtigungen:** Alle wichtigen Ereignisse werden durch schön formatierte, klare Nachrichten im Chat kommuniziert.
+* **🎉 Großes Finale:** Eine konfigurierbare "Sieges"-Bossbar, eine serverweite Ankündigung und ein Feuerwerk feiern den Abschluss der Challenge.
 
 ## 🚀 Installation
 
@@ -44,6 +45,8 @@ bossbar:
   # Welche Farbe soll die Bossbar haben?
   # Gültige Werte: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
   color: 'YELLOW'
+  # Welche Farbe soll die Bossbar haben, wenn die Challenge abgeschlossen ist?
+  completion-color: 'GREEN'
 
 # Einstellungen für Nachrichten
 messages:
